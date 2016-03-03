@@ -107,7 +107,10 @@ module DepGraph
           File.delete('temp.dot')
         end
       else
-        g.output(:file => image_file_name, :output => output_type)
+        # Had to modify on my machine -- not sure what's going on here
+        # And don't need to figure out for a "one-off"
+        #g.output(:file => image_file_name, :output => output_type)
+        g.output(output_type.to_sym => image_file_name)
       end
     end
     
